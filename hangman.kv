@@ -1,0 +1,177 @@
+<Button>
+    font_size:32
+    background_normal:''
+    background_color: (1,0.3,0.5,1)    
+
+<TextInput>
+    background_color:(1,174/268,175/260,160/456)
+
+
+<MenuScreen>:
+    RelativeLayout:
+            
+        Button:
+            pos_hint:{'x':0.4,'y':0.6}
+            size_hint:(0.2,0.08)
+            text: 'PLAY'
+            color:(0.22,1,0.34,1)
+            bold: True
+            outline_width: 5
+            on_release:
+                root.manager.transition.direction='right'
+                app.animate_the_button(self)
+                root.manager.current = 'Topics'
+        Button:
+            pos_hint: {'x':0.4,'y':0.12}
+            size_hint: (0.2,0.08)
+            text: 'Quit'
+            bold:True
+            outline_width:5
+            color:(0.22,1,0.34,1)
+            on_release:
+            
+                app.exit() 
+        Button:
+
+            pos_hint: {'x':0.4,'y':0.48}
+            size_hint: (0.2,0.08)
+            text: 'Practice'
+            outline_width:5
+            color:(0.22,1,0.34,1)
+            bold:True
+
+            on_release:
+                root.manager.transition.direction='right'
+                app.animate_the_button(self)
+                root.manager.current = 'Topics'
+
+        Button:
+
+            pos_hint: {'x':0.4,'y':0.36}
+            size_hint: (0.2,0.08)
+            text: 'Share'
+            outline_width:5
+            color:(0.22,1,0.34,1)
+            bold:True
+
+        Button:
+
+            pos_hint: {'x':0.4,'y':0.24}
+            size_hint: (0.2,0.08)
+            text: 'Credit'
+            outline_width:5
+            color:(0.22,1,0.34,1)
+            bold:True
+
+<Level1Screen>:
+    RelativeLayout:
+
+        Button:
+            pos_hint: {'x':0.0,'y':0.0}
+            size_hint: (0.3,0.05)
+
+            text: '<-Select Topic'
+            bold:True
+            outline_width:3
+            on_release:
+                root.manager.transition.direction='left'
+                app.animate_the_button(self)
+                root.manager.current = 'Topics'
+
+
+<Level2Screen>:
+
+    RelativeLayout:
+        Button:
+            pos_hint: {'x':0.0,'y':0.0}
+            size_hint: (0.3,0.05)
+
+            text: 'Previous'
+            bold:True
+            outline_width:3
+            on_release: 
+                root.manager.transition.direction='left'
+                app.animate_the_button(self)
+                root.manager.current = 'Level1'
+
+<Level3Screen>:
+    RelativeLayout:
+        Button:
+            pos_hint: {'x':0.0,'y':0.0}
+            size_hint: (0.3,0.05)
+
+            text: 'Previous'
+            bold:True
+            outline_width:3
+
+            on_release:
+                root.manager.transition.direction='left'
+                app.animate_the_button(self)
+                root.manager.current = 'Level2'
+
+<Level4Screen>:
+    RelativeLayout:
+
+
+        Button:
+            pos_hint: {'x':0.0,'y':0.0}
+            size_hint: (0.3,0.05)
+
+            text: 'Previous'
+            bold:True
+            outline_width:3
+            on_release:
+                root.manager.transition.direction='left'
+                app.animate_the_button(self)
+                root.manager.current = 'Level3'
+
+<TopicsScreen>:
+    RelativeLayout:
+            
+        Button:
+            pos_hint: {'x':0.4,'y':0.7}
+            size_hint: (0.22,0.22)
+
+            text: 'Sports'
+            bold:True
+            outline_width:5
+            on_release: 
+                root.manager.transition.direction='right'
+                app.animate_the_button(self)
+                root.manager.current = 'Level1'
+        Button:
+            pos_hint: {'x':0.4,'y':0.4}
+            size_hint: (0.22,0.22)
+
+            text: 'Geography'
+            bold:True
+            outline_width:5
+            on_press:
+                root.manager.transition.direction='right'
+                app.animate_the_button(self)
+                root.manager.current = 'Level1'
+        Button:
+            pos_hint: {'x':0.4,'y':0.1}
+            size_hint: (0.22,0.22)
+
+            text: 'History'
+            bold:True
+            outline_width:5
+            on_release: 
+                root.manager.transition.direction='right'
+                app.animate_the_button(self)
+                root.manager.current = 'Level1'
+
+        Button:
+            pos_hint: {'x':0.0,'y':0.0}
+            size_hint: (0.5,0.05)
+
+            text: 'Go Back to Home Page'
+            bold:True
+            outline_width:3
+            on_release: 
+                root.manager.transition.direction='left'
+                app.animate_the_button(self)
+                root.manager.current = 'menu'
+
+
