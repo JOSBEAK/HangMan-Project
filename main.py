@@ -1,3 +1,6 @@
+import kivymd
+from kivymd.app import MDApp
+from kivymd.uix.textfield import MDTextField
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.app import App
@@ -11,7 +14,14 @@ class RootScreenManager(ScreenManager):
     pass
 
 
-class HangManApp(App):
+class HangManApp(MDApp):
+    def __init__(self, **kwargs):
+        self.title = "BMI"
+        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.primary_palette = "Blue"
+        super().__init__(**kwargs)
+
+    
     def build(self):
         return RootScreenManager()
 

@@ -1,12 +1,26 @@
 #:import HangManFig2 figures.hangmanfig2
+#:import MDIconButton kivymd.uix.button.MDIconButton
+#:import MDTextField kivymd.uix.textfield.MDTextField
+#:import MDRoundFlatIconButton kivymd.uix.button.MDRoundFlatIconButton
+#:import MDFloatingActionButton kivymd.uix.button.MDFloatingActionButton
+
+<MDRoundFlatIconButton>:
+	font_size:'28sp'
+	user_font_size:"64sp"
+	text_color: [1,1,1,1]
+	background_normal:''
+	bold:True
+	md_bg_color:[1,0.3,0.5,1]
+
 
 <ShareScreen>:
 	name: '_share_screen_'
 	BoxLayout:
 		HangManFig2:
 			size_hint_x: 0.7
-			Button:
+			MDRoundFlatIconButton:
 				text: 'Back'
+				icon:"skip-previous"
 				pos_hint: {'x': 0, 'y': 0}
 				size_hint: (0.1, 0.1)
 				on_release:
@@ -14,8 +28,19 @@
 					root.manager.current = '_main_screen_'
 		RelativeLayout: 
 			size_hint_x: 0.3
-			Button:
-				text: 'GitHub'
+			MDRoundFlatIconButton:
+				text:'Github'
+				icon:"github-box"
 				pos_hint: {'x': 0.1, 'y': 0.80}
-				size_hint: (0.8, 0.1)
+				size_hint: (0.36, 0.1)
+			MDRoundFlatIconButton:
+				text:'Whatsapp'
+				icon:"whatsapp"
+				pos_hint:{'x':0.1,'y':0.50}
+				size_hint:(0.36,0.1)
+			MDRoundFlatIconButton:
+				text:'Instagram'
+				icon:"instagram"
+				pos_hint:{'x':0.1,'y':0.20}
+				size_hint:(0.36,0.1)
 
