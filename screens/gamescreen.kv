@@ -1,0 +1,10 @@
+<GameScreen>:
+	name: '_game_screen_'
+	Button:
+		pos_hint: {'x': 0, 'y': 0}
+		size_hint: (0.1, 0.1)
+		text: 'Back'
+		on_release: 
+			root.manager.transition.direction = 'right'
+			root.manager.current = '_main_screen_'
+

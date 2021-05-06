@@ -1,0 +1,40 @@
+#:import HangManFig figures.hangmanfig
+
+<MainScreen>:
+	name: '_main_screen_'
+	BoxLayout:	
+		HangManFig:
+			size_hint_x: 0.7
+		RelativeLayout:
+			size_hint_x: 0.3
+			Button:
+				text: 'Play'
+				pos_hint: {'x': 0.1, 'y': 0.80}
+				size_hint: (0.8, 0.1)
+				on_release: 
+					root.manager.transition.direction = 'left'
+					root.manager.current = '_game_screen_'
+
+			Button:
+				text: 'Practice'
+				pos_hint: {'x': 0.1, 'y': 0.60}
+				size_hint: (0.8, 0.1)
+				on_release:
+					root.manager.transition.direction = 'left'
+					root.manager.current = '_game_screen_'
+
+			Button:
+				text: 'Share'
+				pos_hint: {'x': 0.1, 'y': 0.40}
+				size_hint: (0.8, 0.1)
+				on_release: 
+					root.manager.transition.direction = 'left'
+					root.manager.current = '_share_screen_'
+				
+			Button:
+				text: 'Credits'
+				pos_hint: {'x': 0.1, 'y': 0.20}
+				size_hint: (0.8, 0.1)
+				on_release: 
+					root.manager.transition.direction = 'left'
+					root.manager.current = '_credits_screen_'
