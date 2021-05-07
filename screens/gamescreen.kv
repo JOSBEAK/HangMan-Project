@@ -1,18 +1,9 @@
-#:import MDIconButton kivymd.uix.button.MDIconButton
-#:import MDTextField kivymd.uix.textfield.MDTextField
-#:import MDRoundFlatIconButton kivymd.uix.button.MDRoundFlatIconButton
-#:import MDFloatingActionButton kivymd.uix.button.MDFloatingActionButton
-<MDRoundFlatIconButton>:
-	font_size:'38sp'
-	text_color: [1,1,1,1]
-	background_normal:''
-	bold:True
-	md_bg_color:[1,0.3,0.5,1]
+#:import CustomButton widgets.custombutton
+
 <GameScreen>:
 	name: '_game_screen_'
-	MDRoundFlatIconButton:
+	CustomButton:
 		pos_hint: {'x': 0, 'y': 0}
-		size_hint: (0.1, 0.1)
 		text: 'Back'
 		icon: 'skip-previous'
 		on_release: 
