@@ -16,9 +16,7 @@ class RootScreenManager(ScreenManager):
 
 class HangManApp(MDApp):
     def __init__(self, **kwargs):
-        self.title = "BMI"
-        self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Blue"
+        self.theme_cls.theme_style='Dark'
         super().__init__(**kwargs)
 
     

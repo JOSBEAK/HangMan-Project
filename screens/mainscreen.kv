@@ -4,26 +4,23 @@
 #:import MDRoundFlatIconButton kivymd.uix.button.MDRoundFlatIconButton
 #:import MDFloatingActionButton kivymd.uix.button.MDFloatingActionButton
 <MDRoundFlatIconButton>:
-	font_size:'28sp'
-	user_font_size:"64sp"
+	font_size:'38sp'
 	text_color: [1,1,1,1]
 	background_normal:''
 	bold:True
 	md_bg_color:[1,0.3,0.5,1]
-
-
 <MainScreen>:
 	name: '_main_screen_'
 	BoxLayout:	
 		HangManFig1:
-			size_hint_x: 0.7
+			size_hint_x: '0.7sp'
 		RelativeLayout:
-			size_hint_x: 0.3
+			size_hint_x: '0.3sp'
 			MDRoundFlatIconButton:
 				text: 'Play'
 				icon:'gamepad'
-				pos_hint: {'x': 0.1, 'y': 0.80}
-				size_hint: (0.8, 0.1)
+				pos_hint: {'x': 0.1, 'y': 0.8}
+				size_hint: ('0.8sp', '0.1sp')
 				on_release: 
 					root.manager.transition.direction = 'left'
 					root.manager.current = '_game_screen_'
@@ -32,7 +29,7 @@
 				text: 'Practice'
 				icon: 'grain'
 				pos_hint: {'x': 0.1, 'y': 0.65}
-				size_hint: (0.8, 0.1)
+				size_hint: ('0.8sp', '0.1sp')
 				on_release:
 					root.manager.transition.direction = 'left'
 					root.manager.current = '_game_screen_'
@@ -41,7 +38,7 @@
 				text: 'Share'
 				icon: 'share'
 				pos_hint: {'x': 0.1, 'y': 0.50}
-				size_hint: (0.8, 0.1)
+				size_hint: ('0.8sp', '0.1sp')
 				on_release: 
 					root.manager.transition.direction = 'left'
 					root.manager.current = '_share_screen_'
@@ -50,7 +47,7 @@
 				text: 'Credits'
 				icon: 'info-outline'
 				pos_hint: {'x': 0.1, 'y': 0.35}
-				size_hint: (0.8, 0.1)
+				size_hint: ('0.8sp', '0.1sp')
 				on_release: 
 					root.manager.transition.direction = 'left'
 					root.manager.current = '_credits_screen_'
@@ -59,6 +56,6 @@
 				text: 'Quit'
 				icon: 'xbox'
 				pos_hint:{'x':0.1,'y': 0.2}
-				size_hint:(0.8,0.1)
+				size_hint:('0.8sp','0.1sp')
 				on_release:
 					root.manager.current=app.exit()
