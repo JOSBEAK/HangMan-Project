@@ -5,34 +5,36 @@
 <MainScreen>:
 	name: '_main_screen_'
 	BackGround1:	
-	BoxLayout:	
+	BoxLayout:
 		RelativeLayout:
-			size_hint_x: 0.45
+			size_hint_x:0.45
+
 			HangManFig1:
+
 				#size_hint_x: 0.7
 					
 
 		RelativeLayout:
 
 			CustomButton:
-				text: 'Play'
+				text: ' Play'
 				icon:'gamepad'
 				pos_hint: {'x': 0.7, 'y': 0.8}
 
 				on_release: 
 					root.manager.transition.direction = 'left'
-					root.manager.current = '_game_screen_'
+					root.manager.current = '_topic_screen_'
 
 			CustomButton:
-				text: 'Practice'
+				text: ' Practice'
 				icon: 'grain'
 				pos_hint: {'x': 0.7, 'y': 0.65}
 				on_release:
 					root.manager.transition.direction = 'left'
-					root.manager.current = '_game_screen_'
+					root.manager.current = '_topic_screen_'
 
 			CustomButton:
-				text: 'Share'
+				text: ' Share'
 				icon: 'share'
 				pos_hint: {'x': 0.7, 'y': 0.50}
 				on_release: 
@@ -40,15 +42,15 @@
 					root.manager.current = '_share_screen_'
 				
 			CustomButton:
-				text: 'Credits'
-				icon: 'info-outline'
+				text: ' Credits'
+				icon: 'lock'
 				pos_hint: {'x': 0.7, 'y': 0.35}
 				on_release: 
 					root.manager.transition.direction = 'left'
 					root.manager.current = '_credits_screen_'
 
 			CustomButton:
-				text: 'Quit'
+				text: ' Quit'
 				icon: 'xbox'
 				pos_hint:{'x':0.7,'y': 0.2}
 				on_release:

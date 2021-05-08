@@ -1,0 +1,53 @@
+#:import CustomButton widgets.custombutton
+#:import BackGround1 backgrounds.background1
+
+<TopicScreen>:
+	name: '_topic_screen_'
+	BackGround1:
+
+	RelativeLayout:
+		CustomButton:
+			font_size:36
+			pos_hint: {'x': 0.45, 'y': 0.8}
+			size_hint:(0.4,0.1)
+			bold:True
+			md_bg_color:1,0.4,0,0.9
+			font_color:0,0.5,0.8,1
+			text: '                                TOPIC'
+			icon: 'shape'
+			on_release: 
+				root.manager.transition.direction = 'right'
+		CustomButton:
+			text:'Back'
+			icon:'skip-previous'
+			pos_hint: {'x':0,'y':0}
+			on_release:
+				root.manager.transition.direction = 'right'
+				root.manager.current = '_main_screen_'
+
+		CustomButton:
+			pos_hint: {'x': 0.5, 'y': 0.6}
+			size_hint:(0.3,0.1)
+			text: '  HISTORY'
+			icon: 'bike'
+			on_release: 
+				root.manager.transition.direction = 'right'
+				root.manager.current = '_game_screen_'
+
+		CustomButton:
+			pos_hint: {'x': 0.5, 'y': 0.4}
+			size_hint:(0.3,0.1)
+			text: '  SCIENCE'
+			icon: 'bike'
+			on_release: 
+				root.manager.transition.direction = 'right'
+				root.manager.current = '_game_screen_'
+
+		CustomButton:
+			pos_hint: {'x': 0.5, 'y': 0.2}
+			size_hint:(0.3,0.1)
+			text: '  LITERATURE'
+			icon: 'spellcheck'
+			on_release: 
+				root.manager.transition.direction = 'right'
+				root.manager.current = '_game_screen_'
