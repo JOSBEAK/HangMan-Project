@@ -1,8 +1,10 @@
 #:import HangManFig2 figures.hangmanfig2
 #:import CustomButton widgets.custombutton
-
+#:import BackGround1 backgrounds.background1
 <ShareScreen>:
 	name: '_share_screen_'
+	BackGround1:
+
 	BoxLayout:
 		RelativeLayout:
 			size_hint_x: 0.7
@@ -16,7 +18,7 @@
 					root.manager.transition.direction = 'right'
 					root.manager.current = '_main_screen_'
 
-		RelativeLayout: 
+		RelativeLayout:
 			size_hint_x: 0.3
 			CustomButton:
 				text: 'Github'
