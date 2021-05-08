@@ -1,6 +1,7 @@
 #:import HangManFig2 figures.hangmanfig2
 #:import CustomButton widgets.custombutton
 #:import BackGround1 backgrounds.background1
+
 <ShareScreen>:
 	name: '_share_screen_'
 	BackGround1:
@@ -21,17 +22,34 @@
 		RelativeLayout:
 			size_hint_x: 0.3
 			CustomButton:
-				text: 'Github'
+				text: '  Github'
 				icon: "github-box"
 				pos_hint: {'x': 0.1, 'y': 0.80}
+				on_release:
+					import webbrowser
+					webbrowser.open('https://github.com/')
 
 			CustomButton:
-				text: 'Whatsapp'
+				text: ' Whatsapp'
 				icon: "whatsapp"
 				pos_hint: {'x': 0.1, 'y': 0.650}
+				on_release:
+					import webbrowser
+					webbrowser.open('https://web.whatsapp.com')
 
 			CustomButton:
-				text: 'Instagram'
+				text: ' Instagram'
 				icon: "instagram"
 				pos_hint: {'x': 0.1, 'y': 0.50}
+				on_release:
+					import webbrowser
+					webbrowser.open('https://www.instagram.com/')
+
+			CustomButton:
+				text: ' Contribute'
+				icon: 'plus'
+				pos_hint: {'x':0.1,'y':0.35}
+				on_release:
+					import webbrowser
+					webbrowser.open('https://github.com/JOSBEAK/HangMan-Project')
 
