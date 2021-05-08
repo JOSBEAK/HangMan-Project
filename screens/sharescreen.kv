@@ -1,21 +1,37 @@
 #:import HangManFig2 figures.hangmanfig2
-
+#:import CustomButton widgets.custombutton
+#:import BackGround1 backgrounds.background1
 <ShareScreen>:
 	name: '_share_screen_'
+	BackGround1:
+
 	BoxLayout:
-		HangManFig2:
+		RelativeLayout:
 			size_hint_x: 0.7
-			Button:
+			HangManFig2:
+
+			CustomButton:
 				text: 'Back'
+				icon: "skip-previous"
 				pos_hint: {'x': 0, 'y': 0}
-				size_hint: (0.1, 0.1)
 				on_release:
 					root.manager.transition.direction = 'right'
 					root.manager.current = '_main_screen_'
-		RelativeLayout: 
+
+		RelativeLayout:
 			size_hint_x: 0.3
-			Button:
-				text: 'GitHub'
+			CustomButton:
+				text: 'Github'
+				icon: "github-box"
 				pos_hint: {'x': 0.1, 'y': 0.80}
-				size_hint: (0.8, 0.1)
+
+			CustomButton:
+				text: 'Whatsapp'
+				icon: "whatsapp"
+				pos_hint: {'x': 0.1, 'y': 0.650}
+
+			CustomButton:
+				text: 'Instagram'
+				icon: "instagram"
+				pos_hint: {'x': 0.1, 'y': 0.50}
 

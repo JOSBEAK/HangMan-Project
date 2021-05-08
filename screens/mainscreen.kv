@@ -1,40 +1,55 @@
 #:import HangManFig1 figures.hangmanfig1
+#:import CustomButton widgets.custombutton
+#:import BackGround1 backgrounds.background1
 
 <MainScreen>:
 	name: '_main_screen_'
+	BackGround1:	
 	BoxLayout:	
-		HangManFig1:
-			size_hint_x: 0.7
 		RelativeLayout:
-			size_hint_x: 0.3
-			Button:
+			size_hint_x: 0.45
+			HangManFig1:
+				#size_hint_x: 0.7
+					
+
+		RelativeLayout:
+
+			CustomButton:
 				text: 'Play'
-				pos_hint: {'x': 0.1, 'y': 0.80}
-				size_hint: (0.8, 0.1)
+				icon:'gamepad'
+				pos_hint: {'x': 0.7, 'y': 0.8}
+
 				on_release: 
 					root.manager.transition.direction = 'left'
 					root.manager.current = '_game_screen_'
 
-			Button:
+			CustomButton:
 				text: 'Practice'
-				pos_hint: {'x': 0.1, 'y': 0.60}
-				size_hint: (0.8, 0.1)
+				icon: 'grain'
+				pos_hint: {'x': 0.7, 'y': 0.65}
 				on_release:
 					root.manager.transition.direction = 'left'
 					root.manager.current = '_game_screen_'
 
-			Button:
+			CustomButton:
 				text: 'Share'
-				pos_hint: {'x': 0.1, 'y': 0.40}
-				size_hint: (0.8, 0.1)
+				icon: 'share'
+				pos_hint: {'x': 0.7, 'y': 0.50}
 				on_release: 
 					root.manager.transition.direction = 'left'
 					root.manager.current = '_share_screen_'
 				
-			Button:
+			CustomButton:
 				text: 'Credits'
-				pos_hint: {'x': 0.1, 'y': 0.20}
-				size_hint: (0.8, 0.1)
+				icon: 'info-outline'
+				pos_hint: {'x': 0.7, 'y': 0.35}
 				on_release: 
 					root.manager.transition.direction = 'left'
 					root.manager.current = '_credits_screen_'
+
+			CustomButton:
+				text: 'Quit'
+				icon: 'xbox'
+				pos_hint:{'x':0.7,'y': 0.2}
+				on_release:
+					root.manager.current=app.stop()

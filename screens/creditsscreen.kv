@@ -1,11 +1,12 @@
+#:import CustomButton widgets.custombutton
+#:import BackGround1 backgrounds.background1
 <CreditsScreen>:
 	name: '_credits_screen_'
-	Label:
-		text: 'Credits'
-	Button: 
+	BackGround1:
+	CustomButton:
 		pos_hint: {'x': 0, 'y': 0}
-		size_hint: (0.1, 0.1)
 		text: 'Back'
+		icon:'skip-previous'
 		on_release: 
 			root.manager.transition.direction = 'right'
 			root.manager.current = '_main_screen_'
