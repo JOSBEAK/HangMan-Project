@@ -1,7 +1,15 @@
 <HangManFig1>:
+	w: 800
+	h: 750
+
 	canvas:
+		PushMatrix:
+		Scale: 
+			x: self.width / self.w
+			y: self.height / self.h
+
 		Line:
-			points: (150, 100, 150, 700)			
+			points: (150, 100, 150, 700)
 			width: 10
 		Line: 
 			points: (150, 700, 600, 700)
@@ -29,4 +37,6 @@
 		Line: 
 			bezier: (610, 480, 630, 500, 680, 390)
 			width: 10
-	
+		
+		PopMatrix:
+		

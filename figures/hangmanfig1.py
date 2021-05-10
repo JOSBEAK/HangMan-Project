@@ -5,3 +5,4 @@ Builder.load_file('figures/hangmanfig1.kv')
 
 class HangManFig1(Widget):
     pass
+	         
