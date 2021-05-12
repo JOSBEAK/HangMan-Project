@@ -1,25 +1,19 @@
 <HangManFig1>:
-	w: 800
-	h: 750
-
-	canvas:
+	canvas.before:
 		PushMatrix:
 		Scale: 
 			x: self.width / self.w
 			y: self.height / self.h
+		Rotate:
+			angle: root.angle
+			axis: 0, 0, 1
+			origin: (600, 700)
 
-		Line:
-			points: (150, 100, 150, 700)
-			width: 10
-		Line: 
-			points: (150, 700, 600, 700)
-			width: 10
-		Line: 
-			points: (150, 600, 250, 700)
-			width: 10
+	canvas:
 		Line:
 			points: (600, 700, 600, 600)
 			width: 3
+	
 		Ellipse:
 			pos: (550, 500)
 		Line:
@@ -37,6 +31,6 @@
 		Line: 
 			bezier: (610, 480, 630, 500, 680, 390)
 			width: 10
-		
+	
+	canvas.after:
 		PopMatrix:
-		
