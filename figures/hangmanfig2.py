@@ -12,8 +12,6 @@ class HangManFig2(Widget):
     angle_c = NumericProperty(0)
     angle_d = NumericProperty(0)
 
-    x = NumericProperty(0)
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         
@@ -39,8 +37,4 @@ class HangManFig2(Widget):
         anim_temp.repeat = True
         anim &= anim_temp
 
-        anim_temp = Animation(x=800, duration=4)
-        anim &= anim_temp
-
         anim.start(self)
-    
