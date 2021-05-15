@@ -1,9 +1,9 @@
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
 
-Builder.load_file('figures/frame.kv')
+Builder.load_file('figures/framebase.kv')
 
-class Frame(Widget):
+class FrameBase(Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 

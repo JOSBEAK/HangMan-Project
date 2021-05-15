@@ -1,4 +1,4 @@
-<Frame2>:
+<FrameBase>:
 	canvas.before:
 		PushMatrix:
 		Scale:
@@ -6,9 +6,6 @@
 			y: self.height / self.h
 
 	canvas:
-		PushMatrix:
-		Translate:
-			x: root.x
 			
 		Line:
 			points: (150, 100, 150, 700)
@@ -26,7 +23,6 @@
 			width: 20
 			cap: 'square'
 
-		PopMatrix:
 
 	canvas.after:
 		PopMatrix:
