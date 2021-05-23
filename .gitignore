@@ -40,6 +40,9 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+_pycache_/
+*.py[cod]
+*.pyc
 
 # TypeScript v1 declaration files
 typings/
