@@ -7,6 +7,7 @@ class KeyBoard(RelativeLayout):
     wrong_guess = 0
     correct_guess = 0
 
+
     #to select a random string
     def FindHangmanWord(self):
         afile = 'Dict.txt'
