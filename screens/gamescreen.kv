@@ -1,11 +1,11 @@
 #:import CustomButton widgets.custombutton
 #:import BackGround1 backgrounds.background1
 #:import KeyBoard widgets.keyboard
+
 <GameScreen>:
 	name: '_game_screen_'
 	BackGround1:
 
-	KeyBoard:
 	CustomButton:
 		pos_hint: {'x': 0, 'y': 0}
 		text: 'Back'
@@ -13,5 +13,16 @@
 		on_release: 
 			root.manager.transition.direction = 'right'
 			root.manager.current = '_main_screen_'
-	
+
+	BoxLayout:
+		orientation: 'vertical'
+		RelativeLayout:
+
+		BoxLayout:
+			orientation: 'horizontal'
+			RelativeLayout:
+
+			RelativeLayout:	
+				KeyBoard:
+
 
