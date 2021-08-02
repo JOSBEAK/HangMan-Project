@@ -9,7 +9,8 @@ from screens.topicscreen import TopicScreen
 from screens.creditsscreen import CreditsScreen
 from kivy.properties import StringProperty, ListProperty, NumericProperty
 import random
-Window.maximize()
+
+#Window.maximize()
 
 class RootScreenManager(ScreenManager):
     pass

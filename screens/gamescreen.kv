@@ -1,6 +1,7 @@
 #:import CustomButton widgets.custombutton
 #:import BackGround1 backgrounds.background1
 #:import KeyBoard widgets.keyboard
+#:import FrameBase figures.framebase
 
 <GameScreen>:
 	name: '_game_screen_'
@@ -15,11 +16,26 @@
 			root.manager.current = '_main_screen_'
 
 	BoxLayout:
-		orientation: 'vertical'
+		orientation: 'horizontal'
 		RelativeLayout:
+			id: drawing_area
+			w: 950
+			h: 750
+			canvas.before:
+				PushMatrix:
+				Scale:
+					x: self.width / self.w
+					y: self.height / self.h
+			canvas: 
+				Line:
+					points: (600, 700, 600, 623)
+					width: 3
+				PopMatrix:
+
+			FrameBase:
 
 		BoxLayout:
-			orientation: 'horizontal'
+			orientation: 'vertical'
 			RelativeLayout:
 
 			RelativeLayout:	

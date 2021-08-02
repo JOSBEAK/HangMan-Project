@@ -7,6 +7,7 @@ Builder.load_file('figures/hangmanfig1.kv')
 
 class HangManFig1(Widget):
     angle = NumericProperty(0)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
