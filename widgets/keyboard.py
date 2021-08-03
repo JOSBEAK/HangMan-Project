@@ -3,7 +3,7 @@ from kivy.lang.builder import Builder
 from kivy.graphics import Line, Ellipse
 
 import screens.gamescreen
-from widgets.dynamicwidget import DynamicLineWidget
+import widgets.dynamicwidget
 
 Builder.load_file('widgets/keyboard.kv')
 
@@ -11,6 +11,10 @@ class KeyBoard(RelativeLayout):
     correct_guess = 0
     wrong_guess = 0
     game_screen_reference = None
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        screens.gamescreen.GameScreen.keyboard_reference = self
 
     def check_in_word(self, btn):
         word = screens.gamescreen.GameScreen.word
@@ -28,23 +32,39 @@ class KeyBoard(RelativeLayout):
 
         btn.disabled = True
 
+    def clear_buttons(self):
+        for btn in self.ids.values():
+            btn.disabled = False
+
     def draw_next_part(self):
         with KeyBoard.game_screen_reference.ids.drawing_area.canvas:
 
             if KeyBoard.wrong_guess == 1:
-                DynamicLineWidget(circle=[600, 568, 68], width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
+                widgets.dynamicwidget.DynamicLineWidget(
+                        circle=[600, 568, 68], width=10,
+                        parent=KeyBoard.game_screen_reference.ids.drawing_area)
 
             elif KeyBoard.wrong_guess == 2:
-                DynamicLineWidget(bezier=[610, 510, 630, 400, 570, 350], width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
+                widgets.dynamicwidget.DynamicLineWidget(
+                        bezier=[610, 510, 630, 400, 570, 350],
+                        width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
 
             elif KeyBoard.wrong_guess == 3:
-                DynamicLineWidget(bezier=[570, 350, 510, 370, 450, 270], width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
+                widgets.dynamicwidget.DynamicLineWidget(
+                        bezier=[570, 350, 510, 370, 450, 270],
+                        width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
 
             elif KeyBoard.wrong_guess == 4:
-                DynamicLineWidget(bezier=[570, 350, 600, 300, 550, 200], width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
+                widgets.dynamicwidget.DynamicLineWidget(
+                        bezier=[570, 350, 600, 300, 550, 200],
+                        width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
 
             elif KeyBoard.wrong_guess == 5:
-                DynamicLineWidget(bezier=[610, 480, 530, 430, 500, 430], width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
+                widgets.dynamicwidget.DynamicLineWidget(
+                        bezier=[610, 480, 530, 430, 500, 430],
+                        width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
 
             else:
-                DynamicLineWidget(bezier=[610, 480, 630, 500, 680, 390], width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
+                widgets.dynamicwidget.DynamicLineWidget(
+                        bezier=[610, 480, 630, 500, 680, 390],
+                        width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
