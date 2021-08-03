@@ -1,6 +1,11 @@
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.lang.builder import Builder
 from kivy.graphics import Line, Ellipse
+from kivy.uix.label import Label
+from kivy.uix.popup import Popup
+from kivymd.uix.button import MDFillRoundFlatIconButton
+from kivy.uix.gridlayout import GridLayout
+
 
 import screens.gamescreen
 from widgets.dynamicwidget import DynamicLineWidget
@@ -25,6 +30,8 @@ class KeyBoard(RelativeLayout):
             print("YOU WIN")
         elif KeyBoard.wrong_guess >= 6:
             print("YOU LOSE")
+            self.Win_Popup()
+
 
         btn.disabled = True
 
@@ -48,3 +55,16 @@ class KeyBoard(RelativeLayout):
 
             else:
                 DynamicLineWidget(bezier=[610, 480, 630, 500, 680, 390], width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
+    def Win_Popup(self):
+        layout=GridLayout(cols=1,padding=10)
+        label=Label(text="You Lose! Game Over!")
+        closebutton=MDFillRoundFlatIconButton(text="Retry",icon="rotate-right",pos_hint ={'center_x':.7, 'center_y':.5})
+        
+        layout.add_widget(label)
+        layout.add_widget(closebutton)
+
+        popup = Popup(
+          content= layout,
+            size_hint=(None, None), size=(300, 300),auto_dismiss=False)
+        popup.open()
+        closebutton.bind(on_press=popup.dismiss)
