@@ -2,24 +2,6 @@
 #:import HangManFig1 figures.hangmanfig1
 #:import CustomButton widgets.custombutton
 #:import BackGround1 backgrounds.background1
-#:import Factory kivy.factory.Factory
-
-<QuitPopup@Popup>
-	auto_dismiss: False
-	size_hint: 0.3, 0.3
-	pos_hint: {'x_center' : 0.5, 'y_center' : 0.5}
-	title: "Are you sure want to exit?"
-	bold: True
-	RelativeLayout:
-		CustomButton:
-			text: "Yes"
-			pos_hint: {'x_center' : 0.35, 'y' : 0.6}
-			on_release:
-				app.stop()
-		CustomButton:
-			text: "NO"
-			pos_hint: {'x_center' : 0.35, 'y' : 0.1}
-			on_release: root.dismiss()
 
 <MainScreen>:
 	name: '_main_screen_'
@@ -68,6 +50,6 @@
 			CustomButton:
 				text: ' Quit'
 				icon: 'xbox'
-				pos_hint:{'x': 0.1,'y': 0.2}
+				pos_hint: {'x': 0.1,'y': 0.2}
 				on_release:
-					Factory.QuitPopup().open()
+					root.show_confirmation_dialog()

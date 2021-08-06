@@ -3,8 +3,10 @@ from kivy.lang.builder import Builder
 from kivy.graphics import Line, Ellipse
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
-from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivy.uix.gridlayout import GridLayout
+
+from kivymd.uix.button import MDFillRoundFlatIconButton
+from kivymd.uix.dialog import MDDialog
 
 import screens.gamescreen
 import widgets.dynamicwidget
@@ -29,6 +31,7 @@ class KeyBoard(RelativeLayout):
 
         if KeyBoard.correct_guess >= len(set(word)):
             print("YOU WIN")
+            self.win_popup(word)
         elif KeyBoard.wrong_guess >= 6:
             print("YOU LOSE")
             self.lose_popup(word)
@@ -71,22 +74,20 @@ class KeyBoard(RelativeLayout):
                         width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
 
     def lose_popup(self, hidden_word):
-        layout = GridLayout(cols=1, padding=10)
-
-        label = Label(text="The hidden word was "+hidden_word)
-        closebutton = MDFillRoundFlatIconButton(text="Retry",
-                icon="rotate-right", pos_hint={'center_x':.7, 'center_y':.5})
-        
-        layout.add_widget(label)
-        layout.add_widget(closebutton)
-
         self.reset()
+        retry_button = MDFillRoundFlatIconButton(text="Retry", icon="rotate-right")
+        dialog = MDDialog(text=f"You Lose, The hidden word was {hidden_word}!",
+                buttons=[retry_button])
 
-        popup = Popup(title="YOU LOSE!", content= layout, size_hint=(None, None), 
-                size=(300, 300), auto_dismiss=False)
+        dialog.open()
+        retry_button.bind(on_press=dialog.dismiss)
 
-        popup.open()
-        closebutton.bind(on_press=popup.dismiss)
+    def win_popup(self, hidden_word):
+        self.reset()
+        dialog = MDDialog(text=f"You Win, The hidden word was {hidden_word}!", 
+                buttons=[MDFillRoundFlatIconButton(text="Play Again", icon="rotate-right")])
+
+        dialog.open()
 
     def reset(self):
         for instr in widgets.dynamicwidget.DynamicLineWidget.on_canvas:
