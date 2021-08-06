@@ -4,12 +4,13 @@ from kivy.graphics import Line, Ellipse
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
 from kivy.uix.gridlayout import GridLayout
-
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.dialog import MDDialog
-
+import screens.mainscreen
 import screens.gamescreen
 import widgets.dynamicwidget
+from kivymd.app import MDApp
 
 Builder.load_file('widgets/keyboard.kv')
 
@@ -75,19 +76,38 @@ class KeyBoard(RelativeLayout):
 
     def lose_popup(self, hidden_word):
         self.reset()
+        app = MDApp.get_running_app()
+        sm = app.root
+        
         retry_button = MDFillRoundFlatIconButton(text="Retry", icon="rotate-right")
+        
+        return_main = MDFillRoundFlatIconButton(text="Home Screen",icon="arrow-left")
+        
         dialog = MDDialog(text=f"You Lose, The hidden word was {hidden_word}!",
-                buttons=[retry_button])
+                buttons=[retry_button,return_main],
+                auto_dismiss=False)
 
         dialog.open()
         retry_button.bind(on_press=dialog.dismiss)
-
+        return_main.bind(on_press=lambda *kwargs: setattr(sm, 'current', "_main_screen_"))
+        return_main.bind(on_release=dialog.dismiss)
+        
     def win_popup(self, hidden_word):
         self.reset()
+        app = MDApp.get_running_app()
+        sm = app.root
+        play_again = MDFillRoundFlatIconButton(text="Play Again", icon="rotate-right")
+        
+        return_main = MDFillRoundFlatIconButton(text="Home Screen",icon="arrow-left")
+        
         dialog = MDDialog(text=f"You Win, The hidden word was {hidden_word}!", 
-                buttons=[MDFillRoundFlatIconButton(text="Play Again", icon="rotate-right")])
+                buttons=[play_again,return_main],
+                auto_dismiss=False)
 
         dialog.open()
+        play_again.bind(on_press=dialog.dismiss)
+        return_main.bind(on_press=lambda *kwargs: setattr(sm, 'current', "_main_screen_"))
+        return_main.bind(on_release=dialog.dismiss)
 
     def reset(self):
         for instr in widgets.dynamicwidget.DynamicLineWidget.on_canvas:
