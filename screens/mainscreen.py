@@ -7,19 +7,15 @@ from kivymd.uix.button import MDFillRoundFlatIconButton
 
 Builder.load_file('screens/mainscreen.kv')
 
+
 class MainScreen(Screen):
     def show_confirmation_dialog(self):
-        cancel_button=MDFillRoundFlatIconButton(text="Cancel")
-        exit_button=MDFillRoundFlatIconButton(text="OK")
-        dialog = MDDialog(title="Do you really want to exit?", 
-                type="confirmation", 
-                buttons=[exit_button,cancel_button],auto_dismiss=False,background='vv1.png')
+        cancel_button = MDFillRoundFlatIconButton(text="Cancel")
+        exit_button = MDFillRoundFlatIconButton(text="OK")
+        dialog = MDDialog(title="Do you really want to exit?",
+                          type="confirmation",
+                          buttons=[exit_button, cancel_button], auto_dismiss=False, background='vv1.png')
 
         dialog.open()
         cancel_button.bind(on_press=dialog.dismiss)
-        exit_button.bind(on_press=lambda x:MDApp.get_running_app().stop())
-
-
-
-
-
+        exit_button.bind(on_press=MDApp.get_running_app().stop)

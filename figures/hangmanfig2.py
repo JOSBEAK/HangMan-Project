@@ -6,6 +6,7 @@ from kivy.properties import NumericProperty
 
 Builder.load_file('figures/hangmanfig2.kv')
 
+
 class HangManFig2(Widget):
     angle_a = NumericProperty(0)
     angle_b = NumericProperty(0)
@@ -14,7 +15,7 @@ class HangManFig2(Widget):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        
+
         self.w = 950
         self.h = 750
 

@@ -5,6 +5,7 @@ from kivy.properties import NumericProperty
 
 Builder.load_file('figures/hangmanfig1.kv')
 
+
 class HangManFig1(Widget):
     angle = NumericProperty(0)
 
@@ -18,4 +19,3 @@ class HangManFig1(Widget):
         anim += Animation(angle=-10)
         anim.repeat = True
         anim.start(self)
-

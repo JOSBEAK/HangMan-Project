@@ -3,6 +3,7 @@ from kivy.lang import Builder
 
 Builder.load_file('figures/framebase.kv')
 
+
 class FrameBase(Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
