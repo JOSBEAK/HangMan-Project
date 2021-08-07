@@ -24,6 +24,7 @@ class KeyBoard(RelativeLayout):
 
         if btn.text.lower() in word:
             KeyBoard.correct_guess += 1
+            KeyBoard.game_screen_reference.update_guess(btn.text)
         else:
             KeyBoard.wrong_guess += 1
             self.draw_next_part()
@@ -125,4 +126,5 @@ class KeyBoard(RelativeLayout):
         KeyBoard.correct_guess = 0
 
         self.clear_buttons()
-        screens.gamescreen.choose_word()
+        KeyBoard.game_screen_reference.choose_word()
+        KeyBoard.game_screen_reference.ids.guess_label.text = KeyBoard.game_screen_reference.guess

@@ -1,6 +1,5 @@
 from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
-from kivy.properties import ObjectProperty
 
 from random import choice
 
@@ -12,13 +11,20 @@ Builder.load_file('screens/gamescreen.kv')
 
 class GameScreen(Screen):
     word = str()
-    drawing_area = ObjectProperty(None)
+    guess = str()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        choose_word()
+        self.choose_word()
         widgets.keyboard.KeyBoard.game_screen_reference = self
 
+    def choose_word(self, afile='Dict.txt'):
+        GameScreen.word = choice(list(open(afile))).rstrip()
+        GameScreen.guess = "_" * len(GameScreen.word)
 
-def choose_word(afile='Dict.txt'):
-    GameScreen.word = choice(list(open(afile))).rstrip()
+    def update_guess(self, btn_text):
+        guess_list = list(GameScreen.guess)
+        for pos, letter in enumerate(GameScreen.word):
+            if(letter == btn_text.lower()):
+                guess_list[pos] = btn_text
+        GameScreen.guess = self.ids.guess_label.text = "".join(guess_list)
