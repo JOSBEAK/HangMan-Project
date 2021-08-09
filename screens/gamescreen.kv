@@ -17,31 +17,55 @@
 			root.manager.current = '_main_screen_'
 
 	BoxLayout:
-		orientation: 'horizontal'
+		orientation: 'vertical'
 		RelativeLayout:
-			id: drawing_area
-			w: 950
-			h: 750
-			canvas.before:
-				PushMatrix:
-				Scale:
-					x: self.width / self.w
-					y: self.height / self.h
-			canvas: 
-				Line:
-					points: (600, 700, 600, 623)
-					width: 3
-				PopMatrix:
+			size_hint: (1, 0.05)
+			BoxLayout:
+				orientation: 'horizontal'
+				Label:
+					id: lives_label
+					size_hint: (0.3, 1)
+					font_size: 20
+					text: "💜" * root.lives
+					font_name: "seguiemj"
+				Label:
+					id: level_label
+					size_hint: (0.3, 1)
+					font_size: 30
+					text: "Level: " + str(root.level)
+				Label:
+					id: score_label
+					size_hint: (0.3, 1)
+					font_size: 20
+					text: str(root.score)
 
-			FrameBase:
 
 		BoxLayout:
-			orientation: 'vertical'
+			orientation: 'horizontal'
 			RelativeLayout:
-				Label: 
-					id: guess_label
-					text: root.guess
-					font_size: (self.height + self.width) / 10
+				id: drawing_area
+				w: 950
+				h: 750
+				canvas.before:
+					PushMatrix:
+					Scale:
+						x: self.width / self.w
+						y: self.height / self.h
+				canvas: 
+					Line:
+						points: (600, 700, 600, 623)
+						width: 3
+					PopMatrix:
 
-			RelativeLayout:	
-				KeyBoard:
+				FrameBase:
+
+			BoxLayout:
+				orientation: 'vertical'
+				RelativeLayout:
+					Label: 
+						id: guess_label
+						text: root.guess
+						font_size: (self.height + self.width) / 10
+
+				RelativeLayout:	
+					KeyBoard:

@@ -30,7 +30,7 @@ class DynamicLineWidget():
 
         DynamicLineWidget.instructions.append(self)
         self.redraw()
-        self.parent.bind(size=self.dynamic_draw)
+        self.parent.bind(size=lambda *args: self.dynamic_draw)
 
     def redraw(self):
         w, h = self.parent.size
@@ -56,10 +56,11 @@ class DynamicLineWidget():
         except:
             pass
 
-    def dynamic_draw(self, obj, val):
+    def dynamic_draw(self):
         for instr in DynamicLineWidget.on_canvas:
             self.parent.canvas.remove(instr)
         DynamicLineWidget.on_canvas.clear()
 
         for instr in DynamicLineWidget.instructions:
             instr.redraw()
+

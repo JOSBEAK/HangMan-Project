@@ -74,57 +74,71 @@ class KeyBoard(RelativeLayout):
                     width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
 
     def lose_popup(self, hidden_word):
-        self.reset()
+        self.next_game()
 
         retry_button = MDFillRoundFlatIconButton(
             text="Retry", icon="rotate-right")
 
         return_main = MDFillRoundFlatIconButton(
-            text="Home Screen", icon="arrow-left")
+            text="Quit", icon="arrow-left")
 
-        dialog = MDDialog(text=f"You Lose, The hidden word was {hidden_word}!",
+        dialog = MDDialog(title="WRONG ANSWER!",
+                          text=f"The hidden word was {hidden_word}!",
                           buttons=[retry_button, return_main],
                           auto_dismiss=False)
 
         dialog.open()
+        retry_button.bind(on_press=lambda *args: self.update_lose())
+        retry_button.bind(on_press=lambda *args: self.next_game())
         retry_button.bind(on_press=dialog.dismiss)
 
         app_root = MDApp.get_running_app().root
         return_main.bind(
-            on_release=lambda *args: setattr(app_root, 'current', "_main_screen_"))
-        return_main.bind(on_release=dialog.dismiss)
+            on_press=lambda *args: setattr(app_root, 'current', "_main_screen_"))
+        return_main.bind(
+            on_press=lambda *args: self.reset())
+        return_main.bind(on_press=dialog.dismiss)
 
     def win_popup(self, hidden_word):
-        self.reset()
-        play_again = MDFillRoundFlatIconButton(
-            text="Play Again", icon="rotate-right")
+        self.next_game()
+        next_level = MDFillRoundFlatIconButton(
+            text="Next Level", icon="rotate-right")
 
         return_main = MDFillRoundFlatIconButton(
-            text="Home Screen", icon="arrow-left")
+            text="Quit", icon="arrow-left")
 
-        dialog = MDDialog(text=f"You Win, The hidden word was {hidden_word}!",
-                          buttons=[play_again, return_main],
+        dialog = MDDialog(title="CORRECT ANSWER!",
+                          text=f"The hidden word was {hidden_word}!",
+                          buttons=[next_level, return_main],
                           auto_dismiss=False)
 
         dialog.open()
-        play_again.bind(on_press=dialog.dismiss)
+        next_level.bind(on_press=lambda *args: self.update_win())
+        next_level.bind(on_press=lambda *args: self.next_game())
+        next_level.bind(on_press=dialog.dismiss)
 
         app_root = MDApp.get_running_app().root
         return_main.bind(
             on_release=lambda *args: setattr(app_root, 'current', "_main_screen_"))
-        return_main.bind(on_release=dialog.dismiss)
+        return_main.bind(on_press=lambda *args: self.reset())
+        return_main.bind(on_press=dialog.dismiss)
 
-    def reset(self):
-        for instr in widgets.dynamicwidget.DynamicLineWidget.on_canvas:
-            KeyBoard.game_screen_reference.ids.drawing_area.canvas.remove(
-                instr)
-
-        widgets.dynamicwidget.DynamicLineWidget.on_canvas.clear()
-        widgets.dynamicwidget.DynamicLineWidget.instructions.clear()
-
+    def next_game(self):
         KeyBoard.wrong_guess = 0
         KeyBoard.correct_guess = 0
 
         self.clear_buttons()
-        KeyBoard.game_screen_reference.choose_word()
-        KeyBoard.game_screen_reference.ids.guess_label.text = KeyBoard.game_screen_reference.guess
+        KeyBoard.game_screen_reference.next_game()
+
+    def reset(self):
+        KeyBoard.wrong_guess = 0
+        KeyBoard.correct_guess = 0
+
+        self.clear_buttons()
+        KeyBoard.game_screen_reference.reset_game()
+
+    def update_win(self):
+        KeyBoard.game_screen_reference.update_win()
+
+    def update_lose(self):
+        KeyBoard.game_screen_reference.update_lose()
