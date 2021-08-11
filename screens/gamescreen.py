@@ -60,15 +60,15 @@ class GameScreen(Screen):
         app_root = MDApp.get_running_app().root
         tr = app_root.transition
         return_main.bind(
-            on_press=lambda *args: setattr(tr,'direction',"right"),
-            on_release=lambda *args: setattr(app_root,'current',"_main_screen_"))
+            on_press=lambda *args: setattr(tr,'direction',"right"))
+        return_main.bind(
+            on_press=lambda *args: setattr(app_root,'current',"_main_screen_"))
         return_main.bind(
             on_press=lambda *args:GameScreen.keyboard_reference.reset())
         return_main.bind(on_press=dialog.dismiss)
 
     def reset_game(self):
-        self.clear_hangman()
-        self.choose_word()
+        self.next_game()
 
         GameScreen.lives = 3
         GameScreen.level = 1
