@@ -4,7 +4,7 @@ from kivy.lang.builder import Builder
 from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.dialog import MDDialog
 from kivymd.app import MDApp
-
+from kivy.uix.screenmanager import ScreenManager,Screen
 import screens.mainscreen
 import screens.gamescreen
 import widgets.dynamicwidget
@@ -17,9 +17,12 @@ class KeyBoard(RelativeLayout):
     wrong_guess = 0
     game_screen_reference = None
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        screens.gamescreen.GameScreen.keyboard_reference=self
+
     def check_in_word(self, btn):
         word = screens.gamescreen.GameScreen.word
-        print(word)
         btn.disabled = True
 
         if btn.text.lower() in word:
@@ -84,7 +87,7 @@ class KeyBoard(RelativeLayout):
 
         dialog = MDDialog(title="WRONG ANSWER!",
                           text=f"The hidden word was {hidden_word}!",
-                          buttons=[retry_button, return_main],
+                          buttons=[return_main,retry_button],
                           auto_dismiss=False)
 
         dialog.open()
@@ -93,11 +96,14 @@ class KeyBoard(RelativeLayout):
         retry_button.bind(on_press=dialog.dismiss)
 
         app_root = MDApp.get_running_app().root
+        tr = app_root.transition
         return_main.bind(
-            on_press=lambda *args: setattr(app_root, 'current', "_main_screen_"))
+            on_press=lambda *args: setattr(tr,'direction',"right"),
+            on_release=lambda *args: setattr(app_root,'current',"_main_screen_"))
         return_main.bind(
             on_press=lambda *args: self.reset())
         return_main.bind(on_press=dialog.dismiss)
+
 
     def win_popup(self, hidden_word):
         self.next_game()
@@ -109,7 +115,7 @@ class KeyBoard(RelativeLayout):
 
         dialog = MDDialog(title="CORRECT ANSWER!",
                           text=f"The hidden word was {hidden_word}!",
-                          buttons=[next_level, return_main],
+                          buttons=[return_main,next_level],
                           auto_dismiss=False)
 
         dialog.open()
@@ -118,7 +124,9 @@ class KeyBoard(RelativeLayout):
         next_level.bind(on_press=dialog.dismiss)
 
         app_root = MDApp.get_running_app().root
+        transition = app_root.transition
         return_main.bind(
+            on_press=lambda *args: setattr(tr,'direction',"right"),
             on_release=lambda *args: setattr(app_root, 'current', "_main_screen_"))
         return_main.bind(on_press=lambda *args: self.reset())
         return_main.bind(on_press=dialog.dismiss)

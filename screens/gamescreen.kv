@@ -12,9 +12,8 @@
 		pos_hint: {'x': 0, 'y': 0}
 		text: 'Back'
 		icon: 'skip-previous'
-		on_release: 
-			root.manager.transition.direction = 'right'
-			root.manager.current = '_main_screen_'
+		on_press: 
+			root.quit_gamescreen()
 
 	BoxLayout:
 		orientation: 'vertical'
