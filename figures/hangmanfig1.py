@@ -11,10 +11,9 @@ class HangManFig1(Widget):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.animate_it()
 
-        self.w = 950
-        self.h = 750
-
+    def animate_it(self):
         anim = Animation(angle=10)
         anim += Animation(angle=-10)
         anim.repeat = True
