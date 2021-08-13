@@ -28,6 +28,7 @@ class GameScreen(Screen):
     def choose_word(self, afile='Dict.txt'):
         GameScreen.word = choice(list(open(afile))).rstrip()
         GameScreen.guess = "_" * len(GameScreen.word)
+        print(GameScreen.word)
 
     def next_game(self):
         self.clear_hangman()
@@ -88,8 +89,14 @@ class GameScreen(Screen):
     def update_win(self):
         GameScreen.score += 100 * GameScreen.level
         GameScreen.level += 1
-        self.ids.score_label.text = str(GameScreen.score)
-        self.ids.level_label.text = "Level: " + str(GameScreen.level)
+
+        if GameScreen.level == 6:
+            app_root = MDApp.get_running_app().root
+            setattr(app_root, 'current', '_win_screen_')
+            self.reset_game()
+        else:
+            self.ids.score_label.text = str(GameScreen.score)
+            self.ids.level_label.text = "Level: " + str(GameScreen.level)
 
     def update_lose(self):
         if GameScreen.score >= 10 * GameScreen.level:

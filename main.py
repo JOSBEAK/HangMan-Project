@@ -5,7 +5,7 @@ from kivymd.app import MDApp
 from screens.mainscreen import MainScreen
 from screens.gamescreen import GameScreen
 from screens.sharescreen import ShareScreen
-from screens.topicscreen import TopicScreen
+from screens.winscreen import WinScreen
 from screens.creditsscreen import CreditsScreen
 
 

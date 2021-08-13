@@ -8,13 +8,14 @@ Builder.load_file('figures/hangmanfig1.kv')
 
 class HangManFig1(Widget):
     angle = NumericProperty(0)
+    w = NumericProperty(950)
+    h = NumericProperty(750)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.animate_it()
 
-        self.w = 950
-        self.h = 750
-
+    def animate_it(self):
         anim = Animation(angle=10)
         anim += Animation(angle=-10)
         anim.repeat = True

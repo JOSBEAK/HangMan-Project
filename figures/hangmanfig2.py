@@ -13,12 +13,15 @@ class HangManFig2(Widget):
     angle_c = NumericProperty(0)
     angle_d = NumericProperty(0)
 
+    w = NumericProperty(950)
+    h = NumericProperty(750)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.w = 950
-        self.h = 750
-
+        self.animate_it()
+    
+    def animate_it(self):
         anim = Animation(angle_a=10)
         anim += Animation(angle_a=-100)
         anim.repeat = True
