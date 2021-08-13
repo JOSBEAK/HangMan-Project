@@ -1,5 +1,6 @@
 #:kivy 2.0.0
-#:import HangManFig2 figures.hangmanfig2
+#:import FrameBase figures.framebase
+#:import HangManFig1 figures.hangmanfig1
 #:import CustomButton widgets.custombutton
 #:import BackGround1 backgrounds.background1
 
@@ -10,7 +11,8 @@
 	BoxLayout:
 		RelativeLayout:
 			size_hint_x: 0.7
-			HangManFig2:
+			FrameBase:
+			HangManFig1:
 
 			CustomButton:
 				text: 'Back'

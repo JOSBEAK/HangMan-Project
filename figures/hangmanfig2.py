@@ -13,6 +13,9 @@ class HangManFig2(Widget):
     angle_c = NumericProperty(0)
     angle_d = NumericProperty(0)
 
+    w = NumericProperty(950)
+    h = NumericProperty(750)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 

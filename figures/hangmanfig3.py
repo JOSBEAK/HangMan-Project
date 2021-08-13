@@ -1,8 +1,11 @@
-from types import DynamicClassAttribute
+from kivy.clock import Clock
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
 from kivy.animation import Animation
 from kivy.properties import NumericProperty
+
+import screens.winscreen
+import figures.framebase
 
 Builder.load_file('figures/hangmanfig3.kv')
 
@@ -11,6 +14,9 @@ class HangManFigPart3(Widget):
     angle_b = NumericProperty(100)
     angle_c = NumericProperty(-160)
     angle_d = NumericProperty(160)
+
+    w = NumericProperty(950)
+    h = NumericProperty(750)
 
     x_offset = NumericProperty(0)
 
@@ -39,14 +45,18 @@ class HangManFigPart3(Widget):
         anim_temp.repeat = True
         anim &= anim_temp
 
-        anim_temp = Animation(x_offset=300, duration=5)
+        anim_temp = Animation(x_offset=1000, duration=10)
         anim &= anim_temp
 
+        HangManFig3.obj.animate_it()
         anim.start(self)
 
 class HangManFigPart1(Widget):
     offset_y = NumericProperty(0)
     angle = NumericProperty(0)
+
+    w = NumericProperty(950)
+    h = NumericProperty(750)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -75,6 +85,9 @@ class HangManFigPart1(Widget):
 class HangManFigPart2(Widget):
     head_offset = NumericProperty(0)
 
+    w = NumericProperty(950)
+    h = NumericProperty(750)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         
@@ -98,7 +111,13 @@ class HangManFigPart2(Widget):
 
 class HangManFig3(Widget):
     win_screen_reference = None
+    obj = None
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        screens.winscreen.WinScreen.widget_reference = self
+    
+    def start_animation(self):
         HangManFig3.win_screen_reference.ids.animation_area.add_widget(HangManFigPart1())
+        HangManFig3.obj = figures.framebase.FrameBase()
+        HangManFig3.win_screen_reference.ids.animation_area.add_widget(HangManFig3.obj)    

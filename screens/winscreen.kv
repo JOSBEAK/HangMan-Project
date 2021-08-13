@@ -9,5 +9,13 @@
     RelativeLayout:
         id: animation_area
         size_hint_x: 0.7
-        FrameBase:
         HangManFig3:
+
+        CustomButton:
+            text: 'Back'
+            icon: "skip-previous"
+            pos_hint: {'x': 0, 'y': 0}
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = '_main_screen_'
+
