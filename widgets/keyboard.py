@@ -1,5 +1,6 @@
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.lang.builder import Builder
+from kivy.uix.screenmanager import TransitionBase
 
 from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.dialog import MDDialog
@@ -23,6 +24,7 @@ class KeyBoard(RelativeLayout):
 
     def check_in_word(self, btn):
         word = screens.gamescreen.GameScreen.word
+        print(word)
         btn.disabled = True
 
         if btn.text.lower() in word:
@@ -77,8 +79,6 @@ class KeyBoard(RelativeLayout):
                     width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
 
     def lose_popup(self, hidden_word):
-        self.next_game()
-
         retry_button = MDFillRoundFlatIconButton(
             text="Retry", icon="rotate-right")
 
@@ -96,16 +96,15 @@ class KeyBoard(RelativeLayout):
         retry_button.bind(on_press=dialog.dismiss)
 
         app_root = MDApp.get_running_app().root
-        tr = app_root.transition
+        transition = app_root.transition
         return_main.bind(
-            on_press=lambda *args: setattr(tr, 'direction', "right"),
+            on_press=lambda *args: setattr(transition, 'direction', "right"),
             on_release=lambda *args: setattr(app_root, 'current', "_main_screen_"))
         return_main.bind(
             on_press=lambda *args: self.reset())
         return_main.bind(on_press=dialog.dismiss)
 
     def win_popup(self, hidden_word):
-        self.next_game()
         next_level = MDFillRoundFlatIconButton(
             text="Next Level", icon="rotate-right")
 
