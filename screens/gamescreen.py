@@ -90,10 +90,10 @@ class GameScreen(Screen):
         GameScreen.score += 100 * GameScreen.level
         GameScreen.level += 1
 
-        if GameScreen.level == 6:
+        if GameScreen.level == 2:
             app_root = MDApp.get_running_app().root
-            setattr(app_root, 'current', '_win_screen_')
             self.reset_game()
+            setattr(app_root, 'current', '_win_screen_')
         else:
             self.ids.score_label.text = str(GameScreen.score)
             self.ids.level_label.text = "Level: " + str(GameScreen.level)

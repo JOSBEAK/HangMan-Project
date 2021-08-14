@@ -77,8 +77,6 @@ class KeyBoard(RelativeLayout):
                     width=10, parent=KeyBoard.game_screen_reference.ids.drawing_area)
 
     def lose_popup(self, hidden_word):
-        self.next_game()
-
         retry_button = MDFillRoundFlatIconButton(
             text="Retry", icon="rotate-right")
 
@@ -105,7 +103,6 @@ class KeyBoard(RelativeLayout):
         return_main.bind(on_press=dialog.dismiss)
 
     def win_popup(self, hidden_word):
-        self.next_game()
         next_level = MDFillRoundFlatIconButton(
             text="Next Level", icon="rotate-right")
 
