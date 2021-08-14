@@ -94,9 +94,9 @@ class KeyBoard(RelativeLayout):
         retry_button.bind(on_press=dialog.dismiss)
 
         app_root = MDApp.get_running_app().root
-        tr = app_root.transition
+        transition = app_root.transition
         return_main.bind(
-            on_press=lambda *args: setattr(tr, 'direction', "right"),
+            on_press=lambda *args: setattr(transition, 'direction', "right"),
             on_release=lambda *args: setattr(app_root, 'current', "_main_screen_"))
         return_main.bind(
             on_press=lambda *args: self.reset())
