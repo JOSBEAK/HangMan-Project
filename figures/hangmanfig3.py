@@ -49,6 +49,7 @@ class HangManFigPart3(Widget):
         anim &= anim_temp
 
         HangManFig3.obj.animate_it()
+        Clock.schedule_once(lambda *args: HangManFig3.win_screen_reference.win_popup(), 10)
         anim.start(self)
 
 class HangManFigPart1(Widget):
