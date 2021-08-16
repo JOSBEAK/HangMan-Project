@@ -30,7 +30,7 @@ class DynamicLineWidget():
 
         DynamicLineWidget.instructions.append(self)
         self.redraw()
-        self.parent.bind(size=lambda *args: self.dynamic_draw)
+        self.parent.bind(size=lambda *args: self.dynamic_draw())
 
     def redraw(self):
         w, h = self.parent.size
