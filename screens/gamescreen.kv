@@ -14,6 +14,13 @@
 		icon: 'skip-previous'
 		on_press: 
 			root.quit_gamescreen()
+	
+	CustomButton:
+		pos_hint: {'right': 1, 'y': 0}
+		text: 'Hint'
+		icon: 'lamp'
+		on_press: 
+			root.hint_popup()
 
 	BoxLayout:
 		orientation: 'vertical'

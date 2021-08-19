@@ -42,6 +42,8 @@ class KeyBoard(RelativeLayout):
     def clear_buttons(self):
         for btn in self.ids.values():
             btn.disabled = False
+            btn.background_color = [0, 0, 0, 1]
+            btn.color = [1, 1, 1, 1]
 
     def draw_next_part(self):
         with KeyBoard.game_screen_reference.ids.drawing_area.canvas:

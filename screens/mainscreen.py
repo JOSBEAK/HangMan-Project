@@ -14,7 +14,7 @@ class MainScreen(Screen):
         exit_button = MDFillRoundFlatIconButton(text="OK")
         dialog = MDDialog(title="Do you really want to exit?",
                           type="confirmation",
-                          buttons=[exit_button, cancel_button], auto_dismiss=False, background='vv1.png')
+                          buttons=[exit_button, cancel_button], auto_dismiss=False)
 
         dialog.open()
         cancel_button.bind(on_press=dialog.dismiss)

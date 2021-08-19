@@ -6,15 +6,15 @@
 <WinScreen>:
     name: '_win_screen_'
     BackGround1:
+ 
+    CustomButton:
+        text: 'Back'
+        icon: "skip-previous"
+        pos_hint: {'x': 0, 'y': 0}
+        on_release:
+            root.win_popup()
+
     RelativeLayout:
         id: animation_area
         size_hint_x: 0.7
         HangManFig3:
-
-        CustomButton:
-            text: 'Back'
-            icon: "skip-previous"
-            pos_hint: {'x': 0, 'y': 0}
-            on_release:
-                root.win_popup()
-

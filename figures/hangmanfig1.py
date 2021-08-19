@@ -7,7 +7,7 @@ Builder.load_file('figures/hangmanfig1.kv')
 
 
 class HangManFig1(Widget):
-    angle = NumericProperty(0)
+    angle = NumericProperty(-10)
     w = NumericProperty(950)
     h = NumericProperty(750)
 

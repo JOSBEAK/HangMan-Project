@@ -13,6 +13,7 @@ Builder.load_file('screens/winscreen.kv')
 
 class WinScreen(Screen):
     widget_reference = None
+    valid = True
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -21,12 +22,20 @@ class WinScreen(Screen):
     def on_enter(self):
         WinScreen.widget_reference.start_animation()
 
-    def win_popup(self):
-        app_root = MDApp.get_running_app().root
-        if getattr(app_root, 'current') == "_main_screen_":
-            return
+    def win_popup(self, final_fig=None):
+        self.ids.animation_area.clear_widgets()
 
-        self.ids.animation_area.clear_widgets([WinScreen.widget_reference])
+        if final_fig != None:
+            if WinScreen.valid == False:
+                WinScreen.valid = True
+                return
+            else:
+                WinScreen.valid = True
+        else:
+            WinScreen.valid = False
+
+        app_root = MDApp.get_running_app().root
+
 
         return_main = MDFillRoundFlatIconButton(
             text="Back to Main Screen", icon="arrow-left")
@@ -38,8 +47,11 @@ class WinScreen(Screen):
 
         dialog.open()
         tr = app_root.transition
+
+        WinScreen.valid = False
         return_main.bind(
             on_press=lambda *args: setattr(tr, 'direction', "right"))
         return_main.bind(
             on_press=lambda *args: setattr(app_root, 'current', "_main_screen_"))
         return_main.bind(on_press=dialog.dismiss)
+
