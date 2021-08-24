@@ -1,0 +1,12 @@
+#:kivy 2.0.0
+#:import BackGround1 backgrounds.background1
+
+<TitleScreen>:
+    BackGround1:
+    RelativeLayout:
+        Label: 
+            text: "HANGMAN"
+            font_name: "SEASRN__"
+            font_size: (self.height + self.width) / 10
+            size_hint: .15 + root.sz_offset, .05 + root.sz_offset
+            pos_hint: {'center_x': .5, 'center_y': .5}
