@@ -1,12 +1,14 @@
 #:kivy 2.0.0
-#:import BackGround1 backgrounds.background1
+#:import BackGround1 backgrounds.background3
 
 <TitleScreen>:
-    BackGround1:
+    BackGround3:
     RelativeLayout:
-        Label: 
-            text: "HANGMAN"
-            font_name: "SEASRN__"
+        Label:
+            id:title_tap
+            text:"Double Tap to Start"
             font_size: (self.height + self.width) / 10
+            bold:True
             size_hint: .15 + root.sz_offset, .05 + root.sz_offset
-            pos_hint: {'center_x': .5, 'center_y': .5}
+            pos_hint: {'center_x': .5, 'center_y': .1}
+        
