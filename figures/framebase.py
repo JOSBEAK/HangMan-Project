@@ -3,8 +3,6 @@ from kivy.lang import Builder
 from kivy.properties import NumericProperty
 from kivy.animation import Animation
 
-import figures.hangmanfig3
-
 Builder.load_file('figures/framebase.kv')
 
 

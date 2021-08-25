@@ -70,7 +70,6 @@ class HangManFigPart1(Widget):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
         self.animate_it()
 
     def animate_it(self):

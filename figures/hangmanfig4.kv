@@ -1,0 +1,75 @@
+#:kivy 2.0.0
+#:import FrameBase figures.framebase
+
+<HangManFig4Part1>:
+	canvas.before:
+		PushMatrix:
+		Scale: 
+			x: self.width / self.w
+			y: self.height / self.h
+		Rotate:
+			angle: root.angle
+			axis: 0, 0, 1
+			origin: (600, 700)
+
+	canvas:
+		Line:
+			points: (600, 700, 600, 600)
+			width: 3
+		Ellipse:
+			pos: (550, 500)
+		Line:
+			bezier: (610, 510, 630, 400, 570, 350)
+			width: 10
+		Line: 
+			bezier: (570, 350, 510, 370, 450, 270)
+			width: 10
+		Line: 
+			bezier: (570, 350, 600, 300, 550, 200)
+			width: 10
+		Line: 
+			bezier: (610, 480, 530, 430, 510, 430, 610, 500)
+			width: 10
+		Line: 
+			bezier: (610, 480, 710, 480, 730, 480, 610, 500)
+			width: 10
+		
+	canvas.after:
+		PopMatrix:
+
+	
+<HangManFig4Part2>:
+	canvas.before:
+		PushMatrix:
+		Scale: 
+			x: self.width / self.w
+			y: self.height / self.h
+
+	canvas:
+		Line:
+			points: (600, 700, 600, 560)
+			width: 3
+		Ellipse:
+			pos: (525, 490)
+		Line:
+			bezier: (610, 510, 610, 400, 600, 350)
+			width: 10
+		Line: 
+			bezier: (600, 350, 540, 330, 550, 200)
+			width: 10
+		Line: 
+			bezier: (600, 350, 640, 320, 600, 200)
+			width: 10
+		Line: 
+			bezier: (610, 480, 580, 480, 570, 370)
+			width: 10
+		Line: 
+			bezier: (610, 480, 640, 480, 650, 370)
+			width: 10
+		
+	canvas.after:
+		PopMatrix:
+
+
+
+<HangManFig4>:

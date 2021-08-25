@@ -111,8 +111,14 @@ class GameScreen(Screen):
             GameScreen.score = 0
 
         GameScreen.lives -= 1
-        self.ids.score_label.text = str(GameScreen.score)
-        self.ids.lives_label.text = "💜" * GameScreen.lives
+
+        if GameScreen.lives == 2:
+            app_root = MDApp.get_running_app().root
+            self.reset_game()
+            setattr(app_root, 'current', '_lose_screen_')
+        else:
+            self.ids.score_label.text = str(GameScreen.score)
+            self.ids.lives_label.text = "💜" * GameScreen.lives
 
     def hint_popup(self):
         hint_button = MDFillRoundFlatIconButton(
