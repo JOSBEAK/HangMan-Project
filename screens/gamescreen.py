@@ -112,7 +112,7 @@ class GameScreen(Screen):
 
         GameScreen.lives -= 1
 
-        if GameScreen.lives == 2:
+        if GameScreen.lives == 0:
             app_root = MDApp.get_running_app().root
             self.reset_game()
             setattr(app_root, 'current', '_lose_screen_')

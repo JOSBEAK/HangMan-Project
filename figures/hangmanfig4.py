@@ -1,3 +1,4 @@
+from kivy.clock import Clock
 from kivy.lang.builder import Builder
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty
@@ -41,6 +42,17 @@ class HangManFig4Part1(Widget):
 class HangManFig4Part2(Widget):
     w = NumericProperty(950)
     h = NumericProperty(750)
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        Clock.schedule_once(lambda *args: self.show_popup(), 3)
+    
+    def clear_screen(self):
+        HangManFig4.lose_screen_reference.ids.animation_area.clear_widgets()
+
+    def show_popup(self):
+        self.clear_screen()
+        HangManFig4.lose_screen_reference.lose_popup(self)
 
 
 class HangManFig4(Widget):

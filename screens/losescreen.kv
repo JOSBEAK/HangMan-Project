@@ -5,6 +5,14 @@
 <LoseScreen>:
     name: '_lose_screen_'
     BackGround1:
+ 
+    CustomButton:
+        text: 'Back'
+        icon: "skip-previous"
+        pos_hint: {'x': 0, 'y': 0}
+        on_release:
+            root.lose_popup()
+
 
     RelativeLayout:
         id: animation_area

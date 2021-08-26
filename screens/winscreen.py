@@ -23,17 +23,14 @@ class WinScreen(Screen):
         WinScreen.widget_reference.start_animation()
 
     def win_popup(self, final_fig=None):
-        self.ids.animation_area.clear_widgets()
-
         if final_fig != None:
             if WinScreen.valid == False:
                 WinScreen.valid = True
                 return
-            else:
-                WinScreen.valid = True
         else:
             WinScreen.valid = False
 
+        self.ids.animation_area.clear_widgets()
         app_root = MDApp.get_running_app().root
 
 
@@ -48,7 +45,6 @@ class WinScreen(Screen):
         dialog.open()
         tr = app_root.transition
 
-        WinScreen.valid = False
         return_main.bind(
             on_press=lambda *args: setattr(tr, 'direction', "right"))
         return_main.bind(

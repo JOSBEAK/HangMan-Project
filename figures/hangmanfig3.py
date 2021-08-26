@@ -1,3 +1,4 @@
+from figures.hangmanfig4 import HangManFig4
 from kivy.clock import Clock
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
@@ -23,7 +24,6 @@ class HangManFigPart3(Widget):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
         self.animate_it()
 
     def animate_it(self):
@@ -56,9 +56,12 @@ class HangManFigPart3(Widget):
         anim.start(self)
 
     def show_popup(self):
-        HangManFig3.win_screen_reference.ids.animation_area.clear_widgets([
-                                                                          self])
+        self.clear_screen()
         HangManFig3.win_screen_reference.win_popup(self)
+
+    def clear_screen(self):
+        HangManFig3.win_screen_reference.ids.animation_area.clear_widgets([self, HangManFig3.obj])
+
 
 
 class HangManFigPart1(Widget):
@@ -71,6 +74,7 @@ class HangManFigPart1(Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.animate_it()
+
 
     def animate_it(self):
         anim = Animation(angle=10, duration=.5)
@@ -100,7 +104,6 @@ class HangManFigPart2(Widget):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
         self.animate_it()
 
     def animate_it(self):
