@@ -6,7 +6,6 @@ from screens.mainscreen import MainScreen
 from screens.gamescreen import GameScreen
 from screens.sharescreen import ShareScreen
 from screens.winscreen import WinScreen
-from screens.creditsscreen import CreditsScreen
 from screens.titlescreen import TitleScreen
 from screens.losescreen import LoseScreen
 
