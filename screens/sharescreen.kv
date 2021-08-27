@@ -2,17 +2,15 @@
 #:import FrameBase figures.framebase
 #:import HangManFig1 figures.hangmanfig1
 #:import CustomButton widgets.custombutton
-#:import BackGround1 backgrounds.background1
+#:import BackGround4 backgrounds.background4
 
 <ShareScreen>:
 	name: '_share_screen_'
-	BackGround1:
+	BackGround4:
 
 	BoxLayout:
 		RelativeLayout:
 			size_hint_x: 0.7
-			FrameBase:
-			HangManFig1:
 
 			CustomButton:
 				text: 'Back'
@@ -24,13 +22,7 @@
 
 		RelativeLayout:
 			size_hint_x: 0.3
-			CustomButton:
-				text: 'Github'
-				icon: "github-box"
-				pos_hint: {'x': 0.1, 'y': 0.80}
-				on_release:
-					import webbrowser
-					webbrowser.open('https://github.com')
+
 
 			CustomButton:
 				text: 'Whatsapp'
