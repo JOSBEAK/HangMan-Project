@@ -17,9 +17,10 @@
 			size_hint_x: 0.3
 			CustomButton:
 				text: ' Play'
+				font_size:40
 				icon: 'gamepad'
 				pos_hint: {'x': 0.1, 'y': 0.8}
-				size: root.width / 5, root.height / 10
+			#	size: root.width / 5, root.height / 10
 
 				on_release: 
 					root.manager.transition.direction = 'left'
@@ -27,9 +28,10 @@
 
 			CustomButton:
 				text: ' Share'
+				font_size:40
 				icon: 'share'
 				pos_hint: {'x': 0.1, 'y': 0.65}
-				size: root.width / 5, root.height / 10
+				#size: root.width / 5, root.height / 10
 
 				on_release: 
 					root.manager.transition.direction = 'left'
@@ -37,9 +39,10 @@
 				
 			CustomButton:
 				text: ' Quit'
+				font_size:40
 				icon: 'close-circle'
 				pos_hint: {'x': 0.1,'y': 0.5}
-				size: root.width / 5, root.height / 10
+				#size: root.width / 5, root.height / 10
 
 				on_release:
 					root.show_confirmation_dialog()
