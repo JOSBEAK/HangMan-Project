@@ -11,7 +11,31 @@ ___RULES___
 3. User loses if the HangMan is completed.
 4. If the guess is correct, user will move to a new level.
 
-___Installation Instructions___
+__Installation Instructions__
+
+
+
+__Glimpses of Game__
+
+<p align="center">
+  <img src="https://github.com/JOSBEAK/HangMan-Project/main/Game-ss/1.png"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/JOSBEAK/HangMan-Project/main/Game-ss/2.png"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/JOSBEAK/HangMan-Project/main/Game-ss/3.png"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/JOSBEAK/HangMan-Project/main/Game-ss/4.png"/>
+</p>
+
+
+
+
 
 
 
