@@ -15,9 +15,9 @@ ___Installation Instructions___
 
 
 
-___Credits___
-Source : <a title="background game png 2" href="https://pngimage.net/background-game-png-2/">background game png 2</a>
-<a href="https://vectorified.com/game-background-vector">Game Background Vector</a>          
+__Image-Credits__
+1. <a title="background game png 2" href="https://pngimage.net/background-game-png-2/">background game png 2</a>
+2. <a href="https://vectorified.com/game-background-vector">Game Background Vector</a>          
 
 
 
