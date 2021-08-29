@@ -18,19 +18,19 @@ __Installation Instructions__
 __Glimpses of Game__
 
 <p align="center">
-  <img src="https://github.com/JOSBEAK/HangMan-Project/main/Game-ss/1.png"/>
+  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/all_bg/Game-SS/1.png"/>
 </p>
 
 <p align="center">
-  <img src="https://github.com/JOSBEAK/HangMan-Project/main/Game-ss/2.png"/>
+  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/all_bg/Game-SS/2.png"/>
 </p>
 
 <p align="center">
-  <img src="https://github.com/JOSBEAK/HangMan-Project/main/Game-ss/3.png"/>
+  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/all_bg/Game-SS/3.png/"/>
 </p>
 
 <p align="center">
-  <img src="https://github.com/JOSBEAK/HangMan-Project/main/Game-ss/4.png"/>
+  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/all_bg/Game-SS/4.png"/>
 </p>
 
 
