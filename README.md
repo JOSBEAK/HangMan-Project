@@ -20,19 +20,19 @@ __Installation Instructions__
 __Glimpses of Game__
 
 <p align="center">
-  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/all_bg/Game-SS/1.png"/>
+  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/main/Game-SS/1.png"/>
 </p>
 
 <p align="center">
-  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/all_bg/Game-SS/2.png"/>
+  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/main/Game-SS/2.png"/>
 </p>
 
 <p align="center">
-  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/all_bg/Game-SS/3.png/"/>
+  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/main/Game-SS/3.png/"/>
 </p>
 
 <p align="center">
-  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/all_bg/Game-SS/4.png"/>
+  <img src="https://github.com/JOSBEAK/HangMan-Project/blob/main/Game-SS/4.png"/>
 </p>
 
 
@@ -49,8 +49,8 @@ __WorldList-Credits__ <br />
 [Word-List](https://github.com/Xethron/Hangman/blob/master/words.txt)
 
 __Dependency__
-1. [Kivy -- version "2.0.0"](https://kivy.org/#home)
-2. [KivyMd -- version "1.0.0"](https://gitlab.com/kivymd/KivyMD) 
+1. [Kivy](https://kivy.org/#home)
+2. [KivyMd](https://gitlab.com/kivymd/KivyMD) 
 
 __Fonts-Used__ <br />
 [Segoe UI Emoji](https://fontsdata.com/132714/segoeuiemoji.html)
