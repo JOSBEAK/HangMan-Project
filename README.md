@@ -10,6 +10,8 @@ ___RULES___
 2. At each correct guess the letter is placed at its original position in the word.
 3. User loses if the HangMan is completed.
 4. If the guess is correct, user will move to a new level.
+5. User can use Hints provided by game, for help. 
+__(_note_ : Hints cost a sum of 50 points.)__
 
 __Installation Instructions__
 
@@ -43,6 +45,8 @@ __Image-Credits__
 1. <a title="background game png 2" href="https://pngimage.net/background-game-png-2/">background game png 2</a>
 2. <a href="https://vectorified.com/game-background-vector">Game Background Vector</a>          
 
+__WorldList-Credits__ <br />
+https://github.com/Xethron/Hangman/blob/master/words.txt
 
 
 
