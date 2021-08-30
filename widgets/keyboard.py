@@ -33,10 +33,8 @@ class KeyBoard(RelativeLayout):
             self.draw_next_part()
 
         if KeyBoard.correct_guess >= len(set(word)):
-            print("YOU WIN")
             self.win_popup(word)
         elif KeyBoard.wrong_guess >= 6:
-            print("YOU LOSE")
             self.lose_popup(word)
 
     def clear_buttons(self):

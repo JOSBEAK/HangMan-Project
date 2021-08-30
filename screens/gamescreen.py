@@ -34,7 +34,6 @@ class GameScreen(Screen):
         GameScreen.word_list = list(GameScreen.word)
 
         GameScreen.guess = "_" * len(GameScreen.word)
-        print(GameScreen.word)
 
     def next_game(self):
         self.clear_hangman()
