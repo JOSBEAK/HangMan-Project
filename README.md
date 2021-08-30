@@ -46,7 +46,16 @@ __Image-Credits__
 2. <a href="https://vectorified.com/game-background-vector">Game Background Vector</a>          
 
 __WorldList-Credits__ <br />
-https://github.com/Xethron/Hangman/blob/master/words.txt
+[Word-List](https://github.com/Xethron/Hangman/blob/master/words.txt)
+
+__Dependency__
+1. [Kivy -- version "2.0.0"](https://kivy.org/#home)
+2. [KivyMd -- version "1.0.0"](https://gitlab.com/kivymd/KivyMD) 
+
+__Fonts-Used__ <br />
+[Segoe UI Emoji](https://fontsdata.com/132714/segoeuiemoji.html)
+
+
 
 
 
