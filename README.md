@@ -14,6 +14,16 @@ ___RULES___
 __(_note_ : Hints cost a sum of 50 points.)__
 
 __Installation Instructions__
+1. pip install kivy
+2. pip install kivymd
+3. Install this font [Segoe UI Emoji](https://fontsdata.com/132714/segoeuiemoji.html)
+4. clone using 
+```
+git clone https://github.com/JOSBEAK/HangMan-Project/
+
+```
+5. cd HangMan-Project
+6. python main.py
 
 
 
